@@ -20,3 +20,11 @@ Category.create(
 	name: "Surgelés",
 	image: "http://www.bfmtv.com/i/580/290/441456.jpg"
 	)
+
+List.create(
+	name: "List1"
+	)
+
+List.create(
+	name: "List2"
+	)

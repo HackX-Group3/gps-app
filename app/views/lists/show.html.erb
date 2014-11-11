@@ -21,7 +21,7 @@
         <td><%= category.name %></td>
         <td><%= category.image %></td>
         <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Remove', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', remove_category_path(:category => category), method: :post, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

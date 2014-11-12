@@ -34,16 +34,12 @@ class ListsController < ApplicationController
   end
 
   def add_category_list
-    @category=Category.new(category_params)
+    @category=Category.find(2)
     @list = List.find(params[:id])
     @list.categories << @category
-
     respond_to do |format|
-      if @list.save
-        format.json
-      else
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
+        format.html { redirect_to @list, notice: "#{@category.name} was successfully added to #{@list.name}." }
+        format.json { render :show, status: :created, location: @list }  
     end
   end
 

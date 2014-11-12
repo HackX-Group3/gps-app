@@ -23,7 +23,7 @@
         <td><%= link_to category.id, category_path(category) %></td>
         <td><%= link_to category.name, category_path(category)  %></td>
         <td>
-          <%= link_to 'Remove', remove_category_list_path(:category => category), method: :post, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Remove', remove_category_list_path(:category_id => category.id), method: :post, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
@@ -31,7 +31,7 @@
 </table>
 
 
-<%= link_to 'addItem', add_category_list_path(), method: :post, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Add Item', add_category_list_path(:category_id => Category.find(rand(1..4))), method: :post, :class  => 'btn btn-warning' %>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               lists_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -41,3 +41,5 @@
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+<%= link_to "Découvrir l'itinéraire", get_map_path(), method: :post,
+              :class => 'btn btn-success' %>

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   post 'lists/:id/add_category_list' => 'lists#add_category_list', as: 'add_category_list'
   post '/lists/:id/remove_category_list', to: 'lists#remove_category_list', as: 'remove_category_list'
+  post '/lists/:id/get_map', to: 'lists#get_map', as: 'get_map'
+
+  get 'lists/:id/view_map' => 'lists#view_map'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

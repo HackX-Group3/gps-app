@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 fruits = Category.create(
 	name: "Fruits",
 	image: "http://www.eatforhealth.gov.au/sites/default/files/images/the_guidelines/fruit_selection_155265101_web.jpg"
@@ -26,10 +27,25 @@ legumes = Category.create(
 	image: "http://www.biocoop-tarbes.com/actus/Degustation-des-legumes-locaux/063/0"
   )
 
-List.create(
+list1 = List.create(
 	name: "List1"
 	)
 
-List.create(
+list2 =List.create(
 	name: "List2"
 	)
+
+list1.categories << legumes
+list1.categories << surgeles
+
+map_test = Map.create(
+	nb_categories: 5,
+	magasin: "Auchan Villebon",
+	image: "http://www.journaldunet.com/economie/face-a-face/conforama-ikea/itineraire-magasin-confo-orleans.jpg"
+)
+
+map_test2 = Map.create(
+	nb_categories: 5,
+	magasin: "Auchan Villebon",
+	image: "../../Users/timotheemevel/Downloads/itineraire-magasin-confo-orleans.jpg"
+)

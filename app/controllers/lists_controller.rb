@@ -45,7 +45,7 @@ class ListsController < ApplicationController
 
   def remove_category_list
     @list = List.find(params[:id])
-    @category = params[:category]
+    @category = Category.find(params[:category])
     @list.categories.delete @category
     redirect_to action: 'show'
   end

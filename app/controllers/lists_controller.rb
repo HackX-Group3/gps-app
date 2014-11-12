@@ -34,20 +34,34 @@ class ListsController < ApplicationController
   end
 
   def add_category_list
-    @category=Category.find(2)
     @list = List.find(params[:id])
+    @category=Category.find params[:category_id]
     @list.categories << @category
     respond_to do |format|
         format.html { redirect_to @list, notice: "#{@category.name} was successfully added to #{@list.name}." }
-        format.json { render :show, status: :created, location: @list }  
+        format.json { render :show, status: :created, location: @list }
     end
   end
 
   def remove_category_list
     @list = List.find(params[:id])
-    @category = Category.find(params[:category])
+    @category = Category.find params[:category_id]
     @list.categories.delete @category
     redirect_to action: 'show'
+  end
+
+  def get_map
+    @list = List.find(params[:id])
+    @map = Map.find(1)
+
+    respond_to do |format|
+        format.html { redirect_to action: 'view_map', notice: "Voici votre itinéraire." }
+        format.json
+    end
+  end
+
+  def view_map
+    @map = Map.find(1)
   end
 
   def set_list

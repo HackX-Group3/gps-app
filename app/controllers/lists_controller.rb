@@ -1,6 +1,9 @@
 class ListsController < ApplicationController
- before_action :set_list, only: [:show, :edit, :update, :destroy, :add_category_list, :remove_category_list ]
+ before_action :set_list, only: [:new, :create, :show, :edit, :update, :destroy, :add_category_list, :remove_category_list ]
+  
 
+  # On saute une etape de securite si on appel BOOK en JSON
+  skip_before_action :verify_authenticity_token, only: [:new, :create, :show, :edit, :update, :destroy, :add_category_list, :remove_category_list]
   # GET /categories
   # GET /categories.json
   def index
@@ -20,7 +23,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @category = List.new(list_params)
+    @list = List.new(list_params)
 
     respond_to do |format|
       if @list.save
@@ -34,9 +37,11 @@ class ListsController < ApplicationController
   end
 
   def add_category_list
+    a=rand(1..4)
     @list = List.find(params[:id])
-    @category=Category.find params[:category_id]
+    @category=Category.find(category_params[:id])
     @list.categories << @category
+    #flash[:notice]="category added"
     respond_to do |format|
         format.html { redirect_to @list, notice: "#{@category.name} was successfully added to #{@list.name}." }
         format.json { render :show, status: :created, location: @list }
@@ -45,7 +50,7 @@ class ListsController < ApplicationController
 
   def remove_category_list
     @list = List.find(params[:id])
-    @category = Category.find params[:category_id]
+    @category = Category.find(category_params[:id])
     @list.categories.delete @category
     redirect_to action: 'show'
   end
@@ -64,13 +69,18 @@ class ListsController < ApplicationController
     @map = Map.find(1)
   end
 
+
   def set_list
       @list = List.find(params[:id])
   end
 
     # On ajoute les paramètres qu'on va envoyer avec le booking
     def category_params
-      params.require(:category).permit(:name, :image)
+      params.require(:category).permit(:id)
+    end
+
+    def list_params
+      params.require(:list).permit(:name)
     end
 
 end

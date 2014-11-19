@@ -30,12 +30,7 @@
   </tbody>
 </table>
 
-
-<<<<<<< HEAD
-<%= link_to 'addItem', add_category_list_path(), method: :post, data: { confirm: 'Are you sure?' }, :class => 'btn btn-default' %>
-=======
 <%= link_to 'Add Item', add_category_list_path(:category_id => Category.find(rand(1..4))), method: :post, :class  => 'btn btn-warning' %>
->>>>>>> 6b41e2a128daba032eefafd2bb3036233370dd4d
 <%= link_to t('.back', :default => t("helpers.links.back")),
               lists_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),

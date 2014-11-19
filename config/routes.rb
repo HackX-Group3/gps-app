@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'home/index'
   root 'home#index'
-  get 'lists' =>"lists#index"
+  #get 'lists' =>"lists#index"
 
   post 'lists/:id/add_category_list' => 'lists#add_category_list', as: 'add_category_list'
   post '/lists/:id/remove_category_list', to: 'lists#remove_category_list', as: 'remove_category_list'

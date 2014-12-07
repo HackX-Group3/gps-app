@@ -24,7 +24,7 @@ surgeles = Category.create(
 
 legumes = Category.create(
 	name: "Légumes",
-	image: "http://www.biocoop-tarbes.com/actus/Degustation-des-legumes-locaux/063/0"
+	image: "http://a136.idata.over-blog.com/2/28/05/61/Divers/fruitslegumes.jpg"
   )
 
 list1 = List.create(

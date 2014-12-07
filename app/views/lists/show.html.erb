@@ -13,7 +13,7 @@
     <tr>
       <th><%= "Id"%></th>
       <th><%= "Name"%></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <!--<th><%=t '.actions', :default => t("helpers.actions") %></th> -->
     </tr>
   </thead>
 
@@ -22,15 +22,14 @@
       <tr>
         <td><%= link_to category.id, category_path(category) %></td>
         <td><%= link_to category.name, category_path(category)  %></td>
-        <td>
-          <%= link_to 'Remove', remove_category_list_path(:category_id => category.id), method: :post, data: { confirm: 'Are you sure?' } %>
-        </td>
+        <!--<td>
+          <%= link_to 'Remove', remove_category_list_path(:category => category), method: :post, data: { confirm: 'Are you sure?' } %> 
+        </td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Add Item', add_category_list_path(:category_id => Category.find(rand(1..4))), method: :post, :class  => 'btn btn-warning' %>
 <%= link_to t('.back', :default => t("helpers.links.back")),
               lists_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),

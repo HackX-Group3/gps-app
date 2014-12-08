@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record
-group :develoment do
+group :development do
 	gem 'sqlite3'
 end
 
@@ -53,3 +53,6 @@ gem "twitter-bootstrap-rails"
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'byebug', '~> 3.5.1'
+
+# Pour permettre le Cross Domain
+gem 'rack-cors', :require => 'rack/cors'

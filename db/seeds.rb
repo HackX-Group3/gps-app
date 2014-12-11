@@ -26,12 +26,12 @@ boissons = Category.create(
 
 boucherie = Category.create(
 	name: "Boucherie",
-	image: "http://www.pizzaland-herouville.fr/ckfinder/userfiles/images/boissons.png"
+	image: "http://www.boucherie-mielan.fr/wpimages/wp0b878793_05_06.jpg"
 )
 
 decorations = Category.create(
 	name: "Décorations",
-	image: "http://qumore.com/pictures-of-christmas-decorations/"
+	image: "http://www.freegreatimages.com/wp-content/uploads/2014/11/thanksgiving-decorations-1.jpg"
 )
 
 electromenager_cuisine = Category.create(

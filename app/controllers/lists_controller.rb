@@ -68,7 +68,7 @@ class ListsController < ApplicationController
 
   def get_map
     @list = List.find(params[:id])
-    @map = Map.find(1)
+    @map = Map.find(rand(1..3))
 
     respond_to do |format|
         format.html { redirect_to action: 'view_map', notice: "Voici votre itinéraire." }
@@ -77,7 +77,7 @@ class ListsController < ApplicationController
   end
 
   def view_map
-    @map = Map.find(1)
+    @map = Map.find(rand(1..3))
   end
 
 
